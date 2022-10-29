@@ -69,6 +69,9 @@ function dePalabrasAFrase(palabras) {
     }
   }
   return palabras2;
+  /*
+  return palabras.join(" ");
+  */
 }
 
 
@@ -107,6 +110,13 @@ function promedioResultadosTest(resultadosTest) {
   }
   promedio = suma / resultadosTest.length;
   return promedio;
+  /*
+  var promedio = 0;
+  for ( var i = 0; i < resultadosTest.length; i++){
+    promedio = promedio + resultadosTest[i];
+  }
+  return promedio/resultadosTest.length;
+  */
 }
 
 
@@ -121,6 +131,17 @@ function numeroMasGrande(numeros) {
     }
   }
   return maximo;
+
+  /* 
+  var numeroMasGrande = 0;
+  for (var i = 0; i < numeros.length; i++){
+    if(numeros[i] > numeroMasGrande){
+      numeroMasGrande = numeros[i];
+    }
+  }
+  return numeroMasGrande;
+  */
+
 }
 
 
@@ -128,6 +149,7 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+/*
 var arreglo = arguments;
 var multiplicar = 1;
 if (arreglo.length === 0){
@@ -138,7 +160,31 @@ if (arreglo.length === 0){
   }
   return multiplicar;  
 }
+*/
+/*
+var acumulador = 1;
+if (arguments.length === 0) return 0;
+else if (arguments.length === 1) return arguments[0];
+else {
+  for (var i = 0; i < arguments.length; i++){
+    acumulador = acumulador * arguments[i];
+  }
 }
+return acumulador;
+*/
+
+if (arguments.length < 1) return 0;
+var total = 1;
+for (var i = 0; i < arguments.length; i++){
+  total = total * arguments[i];
+}
+return total;
+
+
+
+
+}
+
 
 
 function cuentoElementos(arreglo){
@@ -158,12 +204,21 @@ function diaDeLaSemana(numeroDeDia) {
   //Suponga que los días de la semana se codifican como 1 = Domingo, 2 = Lunes y así sucesivamente. 
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
-  //Escribe tu código aquí   
+  //Escribe tu código aquí  
+  
   if (numeroDeDia === 1 || numeroDeDia === 7){
     return "Es fin de semana";
   }else{
     return "Es dia Laboral";
   }
+  /*
+  if (numeroDeDia === 1 || numeroDeDia === 7){
+    return "Es fin de semana";
+  }else if(numeroDeDia > 1 && numeroDeDia < 7){
+    return "Es dia Laboral";
+  }
+  */
+
 } 
 
 
@@ -171,6 +226,8 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
+
+  
   var numero = n;
   if (numero < 0){
     numero = numero * -1;
@@ -182,6 +239,22 @@ function empiezaConNueve(n) {
   }else{
     return false;
   }
+  
+  
+  /*
+  if (n < 0) n = n * -1;
+  var num = n.toString();
+  console.log(num);
+  if (num[0] == 9) return true;
+  else return false;
+  */
+
+  /*
+  var string = n + "";
+  if (string[0] === '9') return true;
+  else return false;
+  */
+
 }
 
 
@@ -203,6 +276,7 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  
   var array2 = [];
   var ene = 0;
   var mar = 0;
@@ -224,6 +298,16 @@ function mesesDelAño(array) {
   }else{
     return array2;
   }
+  
+  /*
+  var nuevoArray = [];
+  for (var i = 0; i < array.length;i++){
+    if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") nuevoArray.push(array[i]);
+  }
+  console.log(nuevoArray);
+  if (nuevoArray.length < 3) return "No se encontraron los meses pedidos"; 
+  else return nuevoArray;
+  */
 }
 
 
@@ -249,6 +333,7 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+  
   num = numero;
   var b = 0;
   var array = [];
@@ -265,6 +350,21 @@ function breakStatement(numero) {
   }else{
     return array;
   }
+  
+
+  /*
+  var array = [];
+  var suma = numero;
+  for(var i = 0; i < 10; i++){
+    suma = suma + 2;
+    if(suma === i) break;
+    array.push(suma);
+  }
+  if(i<10) return "Se interrumpió la ejecución";
+  else return array;
+  */
+
+
 }
 
 
@@ -278,7 +378,7 @@ function continueStatement(numero) {
   var num = numero;
   var array = [];
   for (var i = 0; i < 10; i++){
-    if (i === 4){
+    if (i === 5){
       continue;
     }
     num = num + 2;
