@@ -90,7 +90,9 @@ function tieneEmail (usuario) {
 //   if(usuario.email) return true; else return false;
 //   if(usuario[email]) return true; else return false; // ESTA MAL
 //if(usuario['email']) return true; else return false;  
-  if(usuario["email"]) return true; else return false;
+  if(usuario["email"] != undefined && usuario["email"] != null) {
+    return true;
+  }else{ return false;}
 }
 
 function tienePropiedad (objeto, propiedad) {
@@ -99,9 +101,10 @@ function tienePropiedad (objeto, propiedad) {
   // De lo contrario, devuelve "false"
   // Tu código:
   // if(objeto.propiedad) return true; else return false; // ESTA MAL
-  if(objeto[propiedad]) return true; else return false;
 //  if(objeto['propiedad']) return true; else return false; // ESTA MAL
 //  if(objeto["propiedad"]) return true; else return false; // ESTA MAl
+// if(objeto[propiedad]) return true; else return false;
+  return objeto.hasOwnProperty(propiedad)?true:false;
 }
 
 function verificarPassword (usuario, password) {
